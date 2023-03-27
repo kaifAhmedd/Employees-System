@@ -8,6 +8,14 @@ int main (int argc, char * argv[]) {
     loadEmpData (&head, fileName);
     printf("\n");
 
+    // main for function 1
+    printf("Function 1 execution");
+    printf("\n");
+    printf("\n");
+    recruitEmployee (&head);
+    printf("\n");
+
+    // main for function 2
     printf("Function 2 execution");
     printf("\n");
     printf("\n");
