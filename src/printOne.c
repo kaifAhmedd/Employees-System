@@ -4,8 +4,15 @@ void printOne (struct employee * headLL, int whichOne){
     ptr = headLL;
     int i;
     for(i=1;i<whichOne;i++){
-        ptr = ptr->nextEmployee;
+        if(ptr != NULL){
+            ptr = ptr->nextEmployee;
+        }
     }
+    if(ptr == NULL){
+        printf("Enter another postion, Employee does not exist!");
+        printf("\n");
+    }
+    else{
     printf("Employee id: %d", ptr->empId);
     printf("\n");
     printf("First name: %s", ptr->fname);
@@ -17,5 +24,6 @@ void printOne (struct employee * headLL, int whichOne){
         printf("%s ", ptr->dependents[i]);
     }
     printf("\n");
-    printf("\n");        
+    printf("\n");
+    }        
 }

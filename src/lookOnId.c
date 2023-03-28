@@ -1,4 +1,16 @@
 #include "../include/headerA3.h"
 int lookOnId (struct employee * headLL, int whichEmpId){
-    return 0;
+    struct employee * ptr;
+    ptr = headLL;
+    int employeePosition = 1;
+    while(ptr!=NULL){
+        if(whichEmpId == ptr->empId){
+            return employeePosition;
+        }
+        else{
+            ptr = ptr->nextEmployee;
+            employeePosition++;
+        }
+    }
+    return -1;
 }
