@@ -8,6 +8,8 @@ int main (int argc, char * argv[]) {
     int empId = 0;
     int position = 0;
     int employeeCount = 0;
+    char fullName[100];
+    int size = 0;
     // we call our helper function
     loadEmpData (&head, fileName);
     printf("\n");
@@ -47,6 +49,26 @@ int main (int argc, char * argv[]) {
     }
     else{
         printf("Sorry we can't find the employee. Please enter another ID! ");
+        printf("\n");
+    }
+    printf("\n");
+
+    //Main for function 5
+    printf("Function 5 execution");
+    printf("\n");
+    printf("Enter employees first and last name: ");
+    getchar();
+    fgets(fullName, 100 , stdin);
+    size = strlen(fullName);
+    fullName[size-1] = '\0';
+    
+    position = lookOnFullName (head, fullName);
+    if(position != -1){
+        printf("This employee is on position %d", position);
+        printf("\n");
+    }
+    else{
+        printf("Sorry we can't find the employee. Please enter another name! ");
         printf("\n");
     }
     printf("\n");
