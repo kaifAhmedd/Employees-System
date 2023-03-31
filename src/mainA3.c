@@ -11,6 +11,7 @@ int main (int argc, char * argv[]) {
     int size = 0;
     int choice = 0;
     char cont = 'y';
+    char fire;
     // we call our helper function
     loadEmpData (&head, fileName);
     printf("\n");
@@ -99,7 +100,16 @@ int main (int argc, char * argv[]) {
 
         }
         else if(choice == 9){
-
+            printf("Function 9 execution");
+            printf("\n");
+            printf("Are you sure you want to fire everyone? Enter 'y' for yes and 'n' for no: ");
+            scanf(" %c", &fire);
+            printf("\n");
+            if(fire == 'y'){
+                fireAll(&head);
+                printf("All fired. Linked list is now empty");
+            }
+            printf("\n");
         }
 
         printf("\n");
