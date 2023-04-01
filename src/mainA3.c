@@ -12,11 +12,40 @@ int main (int argc, char * argv[]) {
     int choice = 0;
     char cont = 'y';
     char fire;
+    int i = 0;
     // we call our helper function
     loadEmpData (&head, fileName);
     printf("\n");
 
     while(cont == 'y'){
+        printf("Wecome to profle!");
+        printf("\n");
+        for(i=0;i<50;i++){
+            printf("-");
+        }
+        printf("\n");
+        printf("1. Add a new employee");
+        printf("\n");
+        printf("2. Print the data of all employees");
+        printf("\n");
+        printf("3. Print the data of the nth employee");
+        printf("\n");
+        printf("4. Search for employee based on their ID");
+        printf("\n");
+        printf("5. Search for employee based on their full name");
+        printf("\n");
+        printf("6. Count the total number of employees");
+        printf("\n");
+        printf("7. Sort the employees based on their ID's");
+        printf("\n");
+        printf("8. Remove the nth employee in the current LL");
+        printf("\n");
+        printf("9. Remove all employees in the current LL");
+        printf("\n");
+        for(i=0;i<50;i++){
+            printf("-");
+        }
+        printf("\n");
         printf("Choose a menu option: ");
         scanf("%d", &choice);
         printf("\n");
@@ -94,9 +123,28 @@ int main (int argc, char * argv[]) {
             printf("\n");
         }
         else if(choice == 7){
-
+            printf("Function 7 execution");
+            printf("\n");
+            printf("After sorting on empId, the employees are as follows: ");
+            printf("\n");
+            sortEmployeesId (head);
+            printf("\n");
         }
         else if(choice == 8){
+            printf("Function 8 execution");
+            printf("\n");
+            employeeCount = countEmployees(head);
+            printf("Currently there are %d employees.", employeeCount);
+            printf("\n");
+            printf("\n");
+            printf("Which employee do you wish to fire - enter a value between 1 to %d: ", employeeCount);
+            scanf("%d", &whichOne);
+            printf("\n");
+            fireOne (&head, whichOne);
+            printf("\n");
+            employeeCount = countEmployees(head);
+            printf("There are now %d employees.", employeeCount);
+            printf("\n");
 
         }
         else if(choice == 9){
