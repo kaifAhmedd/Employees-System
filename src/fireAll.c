@@ -1,4 +1,9 @@
 #include "../include/headerA3.h"
+// this function fires every employee in the linked list
+// while ptr isnt null we free each dependent of the employee 
+// we free the dependents
+//we store the next employee access in tmp
+//we free ptr and we move onto the next employee
 void fireAll (a3Emp ** headLL){
     struct employee * ptr;
     struct employee * tmp;

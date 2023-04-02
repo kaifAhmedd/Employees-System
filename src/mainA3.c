@@ -17,6 +17,7 @@ int main (int argc, char * argv[]) {
     loadEmpData (&head, fileName);
     printf("\n");
 
+    // the user can continue as long as they enter y which indicates yes
     while(cont == 'y'){
         printf("Wecome to profle!");
         printf("\n");
@@ -24,6 +25,7 @@ int main (int argc, char * argv[]) {
             printf("-");
         }
         printf("\n");
+        // menu options
         printf("1. Add a new employee");
         printf("\n");
         printf("2. Print the data of all employees");
@@ -52,6 +54,7 @@ int main (int argc, char * argv[]) {
         scanf("%d", &choice);
         printf("\n");
 
+        // option is 1 then we use the recruitEmployee function to add an employee
         if(choice == 1){
             // main for function 1
             printf("Function 1 execution");
@@ -60,6 +63,7 @@ int main (int argc, char * argv[]) {
             recruitEmployee (&head);
             printf("\n");
         }
+        // if option is 2 then we use the printall function to print all the employees
         else if(choice == 2){
             // main for function 2
             printf("Function 2 execution");
@@ -68,6 +72,8 @@ int main (int argc, char * argv[]) {
             printAll (head);
             printf("\n");
         }
+        // if option is 3 then we ask the enter the postion fo the employee that they want to print
+        // we then call the function print one to print the employees data at the users position
         else if(choice == 3){
             //main for function 3
             printf("Function 3 execution");
@@ -77,6 +83,8 @@ int main (int argc, char * argv[]) {
             printf("\n");
             printOne (head, whichOne);
         }
+        // we ask user to enter an id and we call the function lookOnId so that we can store the postion of the employee that it returns
+        // we then see that f the postion is not -1 we print the postion fo theemployee otherwise we say that employe could not be found
         else if(choice == 4){
              //main for function 4
             printf("Function 4 execution");
@@ -95,6 +103,10 @@ int main (int argc, char * argv[]) {
             }
             printf("\n");
         }
+        // we ask user to enter the first and last name of the employee using fgets
+        // since fgets thats the whole line we need to set the letter of fullName to \0 at size-1
+        // we then call the function and store the postion ofthe employee in the variable postion
+        // we then see that if the postion isnt -1 we print the postion fo the employee other wise we say that the employee could not be found
         else if(choice == 5){
             //Main for function 5
             printf("Function 5 execution");
@@ -116,6 +128,8 @@ int main (int argc, char * argv[]) {
             }
             printf("\n");
         }
+        //  if choice is 6 we call the function countEmployees and we store its returning value in the variable employeeCount
+        // we then print the total number of employees in the LL
         else if(choice == 6){
             //main for function 6
             printf("Function 6 execution");
@@ -124,6 +138,8 @@ int main (int argc, char * argv[]) {
             printf("Total number of employees = %d", employeeCount);
             printf("\n");
         }
+        // if choice is 7 then we promt the message of the sorted version of employees 
+        // we then call the function sortEmployeesId and that prints the employeed data sorted accoring to ids
         else if(choice == 7){
             printf("Function 7 execution");
             printf("\n");
@@ -132,6 +148,10 @@ int main (int argc, char * argv[]) {
             sortEmployeesId (head);
             printf("\n");
         }
+        // if choice is 8 then we call the countemployees function to show how many employees their are boefre we fire someone
+        // we then ask the user to enter a number depening on the user they want to fire
+        // we pass the entered number into the function fireOne and we call it
+        // we then call countemployees to show how amny employees their are after we fired employees
         else if(choice == 8){
             printf("Function 8 execution");
             printf("\n");
@@ -148,6 +168,8 @@ int main (int argc, char * argv[]) {
             printf("There are now %d employees.", employeeCount);
             printf("\n");
         }
+        // if choice is 9 then we ask the user if they really want to fire everyone
+        // if the user enter 'y' then we call the function firAll and we say that the linked list is empty
         else if(choice == 9){
             printf("Function 9 execution");
             printf("\n");
@@ -160,6 +182,7 @@ int main (int argc, char * argv[]) {
             }
             printf("\n");
         }
+        // if choice is 10 we free all employees and end the program
         else if(choice == 10){
             fireAll(&head);
             return 0;

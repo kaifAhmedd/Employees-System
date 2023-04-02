@@ -1,4 +1,8 @@
 #include "../include/headerA3.h"
+// we use a forloop to go move through employees by the number provided to us by the user
+// this allows us to get tothe desired employees position
+// we then see that if ptr is null then it means that the employee does not exist at the position
+// if they do we rint all their info such as id,first and last name, and depdendents
 void printOne (struct employee * headLL, int whichOne){
     struct employee * ptr;
     ptr = headLL;

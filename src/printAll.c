@@ -1,4 +1,6 @@
 #include "../include/headerA3.h"
+// while ptr is not null we print all the info of the employees including id,firs tnad last name, and their dependents
+// we also increment the employee count by 1 eah time so that we can provide the total number of employees
 void printAll (struct employee * headLL){
     struct employee * ptr;
     ptr = headLL;

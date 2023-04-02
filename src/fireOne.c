@@ -1,4 +1,8 @@
 #include "../include/headerA3.h"
+// this function fires the employee on the nth positon entered by the user
+// if the postion is 1 then we delete the first node by freeing and we set the head to the next node after the one which got deleted
+// if the position is not 1 then we set the previous variable to a node before the one we need to delete.
+//once we delete the node we set previoud node next to the next node of the deleted node!
 void fireOne (a3Emp ** headLL, int whichOne){
     struct employee * ptr;
     struct employee * tmp = NULL;
@@ -6,7 +10,6 @@ void fireOne (a3Emp ** headLL, int whichOne){
     ptr = *headLL;
     int i;
 
-    // previousEmp = ptr;
     if(whichOne == 1){
         if(ptr == NULL){
             printf("The Linked list is empty!");
@@ -31,21 +34,15 @@ void fireOne (a3Emp ** headLL, int whichOne){
         }
         previousEmp = ptr;
         ptr = ptr->nextEmployee;
-        if(ptr == NULL){
-            printf("Enter another postion, Employee does not exist!");
-            printf("\n");
+        printf("\n");
+        printf("Employee [Id: %d] fired.", ptr->empId);
+        printf("\n");
+        for(i=0;i<ptr->numDependents;i++){
+            free(ptr->dependents[i]);
         }
-        else{
-            printf("\n");
-            printf("Employee [Id: %d] fired.", ptr->empId);
-            printf("\n");
-            for(i=0;i<ptr->numDependents;i++){
-                free(ptr->dependents[i]);
-            }
-            free(ptr->dependents);
-            tmp = ptr->nextEmployee;
-            free(ptr);
-            previousEmp->nextEmployee = tmp;
-        }        
+        free(ptr->dependents);
+        tmp = ptr->nextEmployee;
+        free(ptr);
+        previousEmp->nextEmployee = tmp;    
     }
 }
