@@ -42,6 +42,8 @@ int main (int argc, char * argv[]) {
         printf("\n");
         printf("9. Remove all employees in the current LL");
         printf("\n");
+        printf("10 Exit");
+        printf("\n");
         for(i=0;i<50;i++){
             printf("-");
         }
@@ -145,7 +147,6 @@ int main (int argc, char * argv[]) {
             employeeCount = countEmployees(head);
             printf("There are now %d employees.", employeeCount);
             printf("\n");
-
         }
         else if(choice == 9){
             printf("Function 9 execution");
@@ -159,10 +160,15 @@ int main (int argc, char * argv[]) {
             }
             printf("\n");
         }
+        else if(choice == 10){
+            fireAll(&head);
+            return 0;
+        }
 
         printf("\n");
         printf("Would you like to continue and go back to menu? Enter 'y' for yes and 'n' for no: ");
         scanf(" %c", &cont);
     }
+    fireAll(&head);
     return 0;
 }

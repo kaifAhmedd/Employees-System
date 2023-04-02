@@ -29,7 +29,7 @@ void recruitEmployee (struct employee ** headLL){
         printf("Do you have anymore dependents? ");
         scanf(" %c", &choice);
         if(choice != 'n' && choice != 'N'){
-            ptr->dependents = realloc(ptr->dependents, sizeof(char*)* i);
+            ptr->dependents = realloc(ptr->dependents, sizeof(char*)* (i+1));
             ptr->dependents[i] = malloc(sizeof(char)*MAX_LENGTH);
             dependentCount++;
         }
