@@ -22,11 +22,19 @@ void recruitEmployee (struct employee ** headLL){
     int ascii = 0;
     int empid = 0;
     int randomizer = rand() % 1000;
-    while(tmp->nextEmployee != NULL){
-        tmp = tmp->nextEmployee;
+
+    if(*headLL == NULL){
+        ptr = malloc(sizeof(struct employee));
+        *headLL = ptr;
     }
-    ptr = malloc(sizeof(struct employee));
-    tmp->nextEmployee = ptr;
+    else{
+        while(tmp->nextEmployee != NULL){
+            tmp = tmp->nextEmployee;
+        }
+        ptr = malloc(sizeof(struct employee));
+        tmp->nextEmployee = ptr;
+    }
+        
     printf("Enter the first name of the employee: ");
     scanf("%s", ptr->fname);
     printf("\n");
@@ -61,10 +69,10 @@ void recruitEmployee (struct employee ** headLL){
 
     tmp = *headLL;
     while(tmp->nextEmployee != NULL){
-            if(empid == tmp->empId){
-                empid = empid + randomizer;
-            }
-            tmp = tmp->nextEmployee;
+        if(empid == tmp->empId){
+            empid = empid + randomizer;
+        }
+        tmp = tmp->nextEmployee;
     }
     ptr->empId = empid;    
     printf("Your computer-generated empid is: %d", empid);

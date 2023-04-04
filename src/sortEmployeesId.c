@@ -12,27 +12,32 @@ void sortEmployeesId (struct employee * headLL){
     int employeeCount = 0;
     int * empArray;
     ptr = headLL;
-    employeeCount = countEmployees (headLL);
-    empArray = malloc(sizeof(int)*employeeCount);
-    ptr = headLL;
-    while(ptr!=NULL){
-        empArray[i] = ptr->empId;
-        ptr = ptr->nextEmployee;
-        i++;
+    if(headLL == NULL){
+        printf("The linked list is unable to sort! ");
     }
-    for(i=0;i<employeeCount-1;i++){
-        for(j=0;j<employeeCount-i-1;j++){
-            if(empArray[j] > empArray[j+1]){
-                tmp = empArray[j];
-                empArray[j] = empArray[j+1];
-                empArray[j+1] = tmp;
+    else{
+        employeeCount = countEmployees (headLL);
+        empArray = malloc(sizeof(int)*employeeCount);
+        ptr = headLL;
+        while(ptr!=NULL){
+            empArray[i] = ptr->empId;
+            ptr = ptr->nextEmployee;
+            i++;
+        }
+        for(i=0;i<employeeCount-1;i++){
+            for(j=0;j<employeeCount-i-1;j++){
+                if(empArray[j] > empArray[j+1]){
+                    tmp = empArray[j];
+                    empArray[j] = empArray[j+1];
+                    empArray[j+1] = tmp;
+                }
             }
         }
-    }
 
-    ptr = headLL;
-    for(i=0;i<employeeCount;i++){
-        position = lookOnId (headLL, empArray[i]);
-        printOne (headLL, position);
+        ptr = headLL;
+        for(i=0;i<employeeCount;i++){
+            position = lookOnId (headLL, empArray[i]);
+            printOne (headLL, position);
+        }
     }
 }

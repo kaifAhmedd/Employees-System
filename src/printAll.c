@@ -6,7 +6,11 @@ void printAll (struct employee * headLL){
     ptr = headLL;
     int employeeCount  = 1;
     int i = 0;
-    while(ptr!=NULL){
+    if(headLL == NULL){
+        printf("This linked list is empty! ");
+    }
+    else{
+        while(ptr!=NULL){
         printf("Employee #%d",employeeCount);
         printf("\n");
         printf("Employee id: %d", ptr->empId);
@@ -23,7 +27,9 @@ void printAll (struct employee * headLL){
         printf("\n");        
         ptr = ptr->nextEmployee;
         employeeCount++;
+        }
+        employeeCount = employeeCount-1;
+        printf("Currently, there are %d employees.", employeeCount);
+
     }
-    employeeCount = employeeCount-1;
-    printf("Currently, there are %d employees.", employeeCount);
 }

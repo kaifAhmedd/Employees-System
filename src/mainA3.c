@@ -19,7 +19,7 @@ int main (int argc, char * argv[]) {
 
     // the user can continue as long as they enter y which indicates yes
     while(cont == 'y'){
-        printf("Wecome to profle!");
+        printf("Wecome to proFile!");
         printf("\n");
         for(i=0;i<50;i++){
             printf("-");
@@ -123,7 +123,7 @@ int main (int argc, char * argv[]) {
                 printf("\n");
             }
             else{
-                printf("Sorry we can't find the employee. Please enter another name! ");
+                printf("Sorry we can't find the employee or the link list is empty. Please enter another name! ");
                 printf("\n");
             }
             printf("\n");
@@ -156,29 +156,40 @@ int main (int argc, char * argv[]) {
             printf("Function 8 execution");
             printf("\n");
             employeeCount = countEmployees(head);
-            printf("Currently there are %d employees.", employeeCount);
-            printf("\n");
-            printf("\n");
-            printf("Which employee do you wish to fire - enter a value between 1 to %d: ", employeeCount);
-            scanf("%d", &whichOne);
-            printf("\n");
-            fireOne (&head, whichOne);
-            printf("\n");
-            employeeCount = countEmployees(head);
-            printf("There are now %d employees.", employeeCount);
-            printf("\n");
+            if(employeeCount == 0){
+                printf("The linked list is empty!");
+            }
+            else{
+                printf("Currently there are %d employees.", employeeCount);
+                printf("\n");
+                printf("\n");
+                printf("Which employee do you wish to fire - enter a value between 1 to %d: ", employeeCount);
+                scanf("%d", &whichOne);
+                printf("\n");
+                fireOne (&head, whichOne);
+                printf("\n");
+                employeeCount = countEmployees(head);
+                printf("There are now %d employees.", employeeCount);
+                printf("\n");
+            }
         }
         // if choice is 9 then we ask the user if they really want to fire everyone
         // if the user enter 'y' then we call the function firAll and we say that the linked list is empty
         else if(choice == 9){
             printf("Function 9 execution");
             printf("\n");
-            printf("Are you sure you want to fire everyone? Enter 'y' for yes and 'n' for no: ");
-            scanf(" %c", &fire);
-            printf("\n");
-            if(fire == 'y'){
-                fireAll(&head);
-                printf("All fired. Linked list is now empty");
+            employeeCount = countEmployees(head);
+            if(employeeCount == 0){
+                printf("The linked list is empty! ");
+            }
+            else{
+                printf("Are you sure you want to fire everyone? Enter 'y' for yes and 'n' for no: ");
+                scanf(" %c", &fire);
+                printf("\n");
+                if(fire == 'y'){
+                    fireAll(&head);
+                    printf("All fired. Linked list is now empty");
+                }
             }
             printf("\n");
         }
