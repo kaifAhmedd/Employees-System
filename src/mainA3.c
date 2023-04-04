@@ -78,10 +78,17 @@ int main (int argc, char * argv[]) {
             //main for function 3
             printf("Function 3 execution");
             printf("\n");
-            printf("Enter a position: ");
-            scanf("%d", &whichOne);
-            printf("\n");
-            printOne (head, whichOne);
+            employeeCount = countEmployees(head);
+            if(employeeCount == 0){
+                printf("The linked list is empty! ");
+                printf("\n");
+            }
+            else{
+                printf("Enter a position: ");
+                scanf("%d", &whichOne);
+                printf("\n");
+                printOne (head, whichOne);
+            }
         }
         // we ask user to enter an id and we call the function lookOnId so that we can store the postion of the employee that it returns
         // we then see that f the postion is not -1 we print the postion fo theemployee otherwise we say that employe could not be found
@@ -89,19 +96,26 @@ int main (int argc, char * argv[]) {
              //main for function 4
             printf("Function 4 execution");
             printf("\n");
-            printf("Enter an employee ID: ");
-            scanf("%d", &empId);
-            printf("\n");
-            position = lookOnId(head, empId);
-            if(position != -1){
-                printf("This employee is on position %d", position);
+            employeeCount = countEmployees(head);
+            if(employeeCount == 0){
+                printf("The linked list is empty! ");
                 printf("\n");
             }
             else{
-                printf("Sorry we can't find the employee. Please enter another ID! ");
+                printf("Enter an employee ID: ");
+                scanf("%d", &empId);
+                printf("\n");
+                position = lookOnId(head, empId);
+                if(position != -1){
+                    printf("This employee is on position %d", position);
+                    printf("\n");
+                }
+                else{
+                    printf("Sorry we can't find the employee. Please enter another ID! ");
+                    printf("\n");
+                }
                 printf("\n");
             }
-            printf("\n");
         }
         // we ask user to enter the first and last name of the employee using fgets
         // since fgets thats the whole line we need to set the letter of fullName to \0 at size-1
@@ -111,22 +125,29 @@ int main (int argc, char * argv[]) {
             //Main for function 5
             printf("Function 5 execution");
             printf("\n");
-            printf("Enter employees first and last name: ");
-            getchar();
-            fgets(fullName, 100 , stdin);
-            size = strlen(fullName);
-            fullName[size-1] = '\0';
-            
-            position = lookOnFullName (head, fullName);
-            if(position != -1){
-                printf("This employee is on position %d", position);
+            employeeCount = countEmployees(head);
+            if(employeeCount == 0){
+                printf("The linked list is empty! ");
                 printf("\n");
             }
             else{
-                printf("Sorry we can't find the employee or the link list is empty. Please enter another name! ");
+                printf("Enter employees first and last name: ");
+                getchar();
+                fgets(fullName, 100 , stdin);
+                size = strlen(fullName);
+                fullName[size-1] = '\0';
+                
+                position = lookOnFullName (head, fullName);
+                if(position != -1){
+                    printf("This employee is on position %d", position);
+                    printf("\n");
+                }
+                else{
+                    printf("Sorry we can't find the employee. Please enter another name! ");
+                    printf("\n");
+                }
                 printf("\n");
-            }
-            printf("\n");
+                }
         }
         //  if choice is 6 we call the function countEmployees and we store its returning value in the variable employeeCount
         // we then print the total number of employees in the LL
@@ -135,8 +156,14 @@ int main (int argc, char * argv[]) {
             printf("Function 6 execution");
             printf("\n");
             employeeCount = countEmployees(head);
-            printf("Total number of employees = %d", employeeCount);
-            printf("\n");
+            if(employeeCount == 0){
+                printf("The linked list is empty! ");
+                printf("\n");
+            }
+            else{
+                printf("Total number of employees = %d", employeeCount);
+                printf("\n");
+            }
         }
         // if choice is 7 then we promt the message of the sorted version of employees 
         // we then call the function sortEmployeesId and that prints the employeed data sorted accoring to ids
